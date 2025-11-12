@@ -1,4 +1,3 @@
-# exe/hook_master
 #!/usr/bin/env ruby
 
 require "hook_master"

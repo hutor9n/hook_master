@@ -11,7 +11,16 @@ module HookMaster
         puts "Error: '.git/hooks/' not found. Are you in a Git repository?"
         return
       end
-
+    def self.hook_content
+      <<~HOOK
+        #!/bin/bash
+        if command -v bundle >/dev/null 2>&1; then
+          exec bundle exec hook_master run pre-commit "$@"
+        else
+          exec hook_master run pre-commit "$@"
+        fi
+      HOOK
+    end
       script_content = <<~SHELL
         #!/bin/bash
         hook_master run pre-commit "$@"
