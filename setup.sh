@@ -1,4 +1,5 @@
 set -e
+cd ..
 mkdir demo_project
 cd demo_project
 git init

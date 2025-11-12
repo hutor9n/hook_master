@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   
   spec.summary = "Git Hook Automation for RuboCop."
   spec.description = "Installs pre-commit Git hooks to run RuboCop automatically."
-  spec.homepage = "https://github.com/hutor9n/Ruby/hook_master"
+  spec.homepage = "https://github.com/hutor9n/hook_master"
   spec.required_ruby_version = ">= 3.2.0"
   spec.license = "MIT"
   spec.metadata["allowed_push_host"] = "https://example.com"

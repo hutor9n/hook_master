@@ -11,6 +11,28 @@ module HookMaster
         puts "Error: '.git/hooks/' not found. Are you in a Git repository?"
         return
       end
+
+    def self.create_config
+      config_filename = ".rubocop.yml"
+      
+      template_path = File.expand_path(
+        "../../templates/#{config_filename}", 
+        __dir__ 
+      )
+
+      if File.exist?(config_filename)
+        puts "Skipping: '#{config_filename}' already exists."
+        return
+      end
+
+      if File.exist?(template_path)
+        FileUtils.copy_file(template_path, config_filename)
+        puts "Success: Created default '#{config_filename}'."
+      else
+        puts "Error: Template file not found in gem at #{template_path}"
+      end
+    end    
+
     def self.hook_content
       <<~HOOK
         #!/bin/bash

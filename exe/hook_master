@@ -1,19 +1,21 @@
 #!/usr/bin/env ruby
-
 require "hook_master"
 require "hook_master/installer"
-require "hook_master/runner"
+require "hook_master/runner" 
 
 command = ARGV.shift
 
 case command
 when 'install'
   HookMaster::Installer.install
+when 'init' 
+  HookMaster::Installer.create_config
 when 'run'
   hook_name = ARGV.shift
   HookMaster::Runner.run(hook_name)
 else
   puts "Usage:"
   puts "  hook_master install  - Install Git hooks."
+  puts "  hook_master init     - Create a default .rubocop.yml config." 
   puts "  hook_master run [hook] - Run checks (used by hooks)."
 end
