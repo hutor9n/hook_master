@@ -4,5 +4,4 @@ require_relative "hook_master/version"
 
 module HookMaster
   class Error < StandardError; end
-  # Your code goes here...
 end
